@@ -1,0 +1,13 @@
+# vsim -L ../../bin -do ./simulate-do -c -lic_plus -quiet -novopt tb_inner_product_FSM 
+# do ./simulate-do 
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 4 of file "mem_one_one.txt". (Current address [4], address range [0:3])    : tb_inner_product_FSM.v(138)
+#    Time: 0 ps  Iteration: 0  Instance: /tb_inner_product_FSM
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 4 of file "mem_two_one.txt". (Current address [4], address range [0:3])    : tb_inner_product_FSM.v(139)
+#    Time: 0 ps  Iteration: 0  Instance: /tb_inner_product_FSM
+# time =                   93, Result =   86
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 5 of file "mem_one_two.txt". (Current address [4], address range [0:3])    : tb_inner_product_FSM.v(144)
+#    Time: 93 ns  Iteration: 0  Instance: /tb_inner_product_FSM
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 5 of file "mem_two_two.txt". (Current address [4], address range [0:3])    : tb_inner_product_FSM.v(145)
+#    Time: 93 ns  Iteration: 0  Instance: /tb_inner_product_FSM
+# time =                  185, Result =  414
+         185, Result =  414
