@@ -1,0 +1,28 @@
+Setting up input FIFOs
+input1[          0] =   16
+input2[          0] =    1
+input1[          1] =    9
+input2[          1] =    2
+input1[          2] =    8
+input2[          2] =    3
+input1[          3] =    7
+input2[          3] =    4
+Executing firing for mode no. 1
+Executing firing for mode no. 2
+Executing firing for mode no. 3
+time =                   93, FIFO[0] =   86
+time =                   93, Result =   86
+Setting up input FIFOs
+input1[          0] =   17
+input2[          0] =   21
+input1[          1] =   18
+input2[          1] =   20
+input1[          2] =   19
+input2[          2] =   19
+input1[          3] =   20
+input2[          3] =   18
+Executing firing for mode no. 1
+Executing firing for mode no. 2
+Executing firing for mode no. 3
+time =                  185, FIFO[0] =  414
+time =                  185, Result =  414
