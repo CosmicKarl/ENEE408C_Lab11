@@ -44,7 +44,7 @@ module accumulator_mode_FSM_3
         #(parameter size = 3, width = 10)(  
         input clk, rst,
         input start_in,
-        input [width - 1 : 0] ram_out1, ram_out2,
+        input [width - 1 : 0] command_in, length_in, data_in,
         output reg done_out,
         output reg rd_en,
         output [log2(size) - 1 : 0] rd_addr,
@@ -68,13 +68,13 @@ module accumulator_mode_FSM_3
         begin 
             state <= next_state;
             acc <= next_acc;
-	          counter <= next_counter;
+	        counter <= next_counter;
         end
     end
   
     assign rd_addr = counter;
 
-    always @(state, start_in, ram_out1, ram_out2, counter)
+    always @(state, start_in, command_in, length_in, data_in, counter)
     begin 
         case (state)
 	      START:
@@ -92,14 +92,14 @@ module accumulator_mode_FSM_3
         begin 
             next_counter <= counter + 1;
             rd_en <= 1;
-            next_acc <= ram_out1 * ram_out2;
+            //next_acc <= ram_out1 * ram_out2;
             next_state <= STATE1;
         end
         STATE1:
         begin 
             next_counter <= counter + 1;
             rd_en <= 1;
-            next_acc <= acc + ram_out1 * ram_out2;
+            //next_acc <= acc + ram_out1 * ram_out2;
             if (counter == (size - 1))
                 next_state <= END;
             else

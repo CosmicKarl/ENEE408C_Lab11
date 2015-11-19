@@ -43,35 +43,45 @@ ENHANCEMENTS, OR MODIFICATIONS.
 ******************************************************************************/
 
 `timescale 1ns / 1ps
-module innner_product_enable
-        #(parameter size = 3, buffer_size = 5, buffer_size_out = 1)(
+module stream_comp_enable
+        #(parameter size = 3, buffer_size = 5, buffer_size_out = 1, width = 10)(
         input rst,
-        input [log2(buffer_size) - 1 : 0] pop_in_fifo1,
-        input [log2(buffer_size) - 1 : 0] pop_in_fifo2,
+        input [log2(buffer_size) - 1 : 0] pop_in_command_fifo,
+        input [log2(buffer_size) - 1 : 0] pop_in_length_fifo,
+        input [log2(buffer_size) - 1 : 0] pop_in_data_fifo,
         input [log2(buffer_size_out) - 1 : 0] cap_out_fifo1,
         input [1 : 0] mode,
+        input [width - 1 : 0] length,
         output reg enable);
   
-    localparam MODE_ONE = 2'b00, MODE_TWO = 2'b01, MODE_THREE = 2'b10;
+    localparam MODE_ONE = 2'b00, MODE_TWO = 2'b01, MODE_THREE = 2'b10, MODE_FOUR = 2'b11;
   
     reg [1 : 0] state_mode;
     reg [1 : 0] next_state_mode;
  
-    always @(mode, pop_in_fifo1, pop_in_fifo2, cap_out_fifo1)
+    always @(mode, pop_in_command_fifo, pop_in_length_fifo, pop_in_data_fifo, cap_out_fifo1)
     begin 
         case (mode)
         MODE_ONE:
         begin
-            if (pop_in_fifo1 >= size && pop_in_fifo2 >= size)
+            if (pop_in_command_fifo >= 1 && pop_in_length_fifo >= 1)
                 enable <= 1;
             else
                 enable <= 0;
         end
         MODE_TWO:
         begin
-            enable <= 1;
+            if (pop_in_data_fifo >= length)
+                enable <= 1;
+            else 
+                enable <= 0;
+                        
         end    
         MODE_THREE:
+        begin
+            enable <= 1;
+        end
+        MODE_FOUR:
         begin 
             if (cap_out_fifo1 >= 1)
                 enable <= 1;

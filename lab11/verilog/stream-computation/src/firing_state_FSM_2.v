@@ -77,16 +77,18 @@ ENHANCEMENTS, OR MODIFICATIONS.
 module firing_state_FSM2
         #(parameter size = 3, width = 10)(
         input clk,rst,
-        input [width - 1 : 0] data_in_fifo1,
-        input [width - 1 : 0] data_in_fifo2, 
+        input [width - 1 : 0] data_in_fifo,
+        input [width - 1 : 0] length_in_fifo, 
+        input [width - 1 : 0] command_in_fifo,
         input start_in,
         input [1 : 0] next_mode_in,
-        output rd_in_fifo1,
-        output rd_in_fifo2,
+        output rd_data_in_fifo,
+        output rd_length_in_fifo,
+        output rd_command_in_fifo,
         output reg [1 : 0] next_mode_out,
         output reg done_out,
         output reg wr_out_fifo1,
-        output reg [width - 1 : 0] data_out 
+        output reg [width - 1 : 0] result_out 
         );
 
     localparam MODE_ONE = 2'b00, MODE_TWO = 2'b01, MODE_THREE = 2'b10;
@@ -96,28 +98,41 @@ module firing_state_FSM2
             STATE_END = 3'b110;
 
     reg [2 : 0] state_module, next_state_module;
-    reg start_in_child_mode1, start_in_child_mode2;
+    reg read_from_command_done, read_from_length_done, start_in_child_mode1, start_in_child_mode2;
     reg wr_en;
     
     wire [width - 1 : 0] acc_out;
     wire done_out_mode1, done_out_mode2;
-    wire [width - 1 : 0] ram_out1, ram_out2;
+    wire [width - 1 : 0] ram_out1, ram_out2, ram_out3;
     wire [log2(size) - 1 : 0] wr_addr, rd_addr;
-    wire [width - 1 : 0] data_out_one, data_out_two;
+    wire [width - 1 : 0] command_out, length_out, data_out;
     wire rd_en;
         
     single_port_ram #(.size(size), .width(width))
-            RAM1(data_out_one, wr_addr, rd_addr, wr_en_ram, rd_en, clk, 
+            RAM1(command_out, wr_addr, rd_addr, wr_en_ram, rd_en, clk, 
             ram_out1);
     single_port_ram #(.size(size), .width(width))
-            RAM2(data_out_two, wr_addr, rd_addr, wr_en_ram, rd_en, clk, 
+            RAM2(length_out, wr_addr, rd_addr, wr_en_ram, rd_en, clk, 
             ram_out2);
+    single_port_ram #(.size(size), .width(width))
+            RAM3(data_out, wr_addr, rd_addr, wr_en_ram, rd_en, clk, 
+            ram_out3);
 
     /* Instantiation of nested FSM for core compuation CFDF mode 1. */	    
-    load_loc_mem_FSM_3 #(.size(size), .width(width))
-            loc_mem(clk, rst, start_in_child_mode1, data_in_fifo1, 
-            data_in_fifo2, rd_in_fifo1, rd_in_fifo2, done_out_child_mode1, 
-            wr_en_ram, wr_addr, data_out_one, data_out_two);
+    load_loc_mem_FSM_3 #(.width(width))
+            loc_mem_command(clk, rst, start_in_child_mode1, size, command_in_fifo, 
+            rd_in_fifo1, read_from_command_done, 
+            wr_en_ram, wr_addr, command_out);
+
+    load_loc_mem_FSM_3 #(.width(width))
+            loc_mem_length(clk, rst, start_in_child_mode1, size, length_in_fifo, 
+            rd_in_fifo1, read_from_length_done, 
+            wr_en_ram, wr_addr, length_out);
+
+    load_loc_mem_FSM_3 #(.width(width))
+            loc_mem_data(clk, rst, start_in_child_mode1, size, data_in_fifo, 
+            rd_in_fifo1, done_out_child_mode1, 
+            wr_en_ram, wr_addr, data_out_one);
 
     /* Instantiation of nested FSM for core compuation CFDF mode 2. */
     accumulator_mode_FSM_3 #(.size(size), .width(width)) accumulator(clk, rst, 
@@ -162,7 +177,7 @@ module firing_state_FSM2
 
         /***********************************************************************
         CFDF firing mode: "mode one"
-        -- Consumption rate is size for each input FIFO.
+        -- Consumption rate is 1 for command FIFO.
         -- Production rate is 0 for the output FIFO.
         ***********************************************************************/
         STATE_MODE_ONE_START:
@@ -176,7 +191,7 @@ module firing_state_FSM2
         begin
             /* Continue after nested FSM completes */
             start_in_child_mode1 <= 0;
-            if (done_out_child_mode1)
+            if (read_from_command_done && read_from_length_done)
             begin
                 next_state_module <= STATE_END;
             end
@@ -222,7 +237,7 @@ module firing_state_FSM2
         /* This is a leaf-level state (no nested FSM) */
         begin 
             wr_out_fifo1 <= 1;          
-            data_out <= acc_out;
+            result_out <= acc_out;
             wr_en <= 0;
             next_state_module <= STATE_END;
         end

@@ -68,15 +68,17 @@ ENHANCEMENTS, OR MODIFICATIONS.
 ******************************************************************************/
 `timescale 1ns/1ps
 
-module inner_product_invoke_top_module_1
+module stream_comp_invoke_top_module_FSM_1
         #(parameter size = 3, width = 10)(    
         input clk,rst,
-        input [width - 1 : 0] data_in_fifo1,
-        input [width - 1 : 0] data_in_fifo2, 
+        input [width - 1 : 0] data_in_fifo,
+        input [width - 1 : 0] length_in_fifo, 
+        input [width - 1 : 0] command_in_fifo, 
         input invoke,
         input [1 : 0] next_mode_in,
-        output rd_in_fifo1,
-        output rd_in_fifo2,
+        output rd_data_in_fifo,
+        output rd_length_in_fifo,
+        output rd_command_in_fifo,
         output [1 : 0] next_mode_out,
         output FC,
         output wr_out_fifo1,

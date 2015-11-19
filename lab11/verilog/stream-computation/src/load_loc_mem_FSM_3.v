@@ -43,19 +43,18 @@ module load_loc_mem_FSM_3
         #(parameter size = 3, width = 10)(  
         input clk, rst,
         input start_in,
-        input [width - 1 : 0] data_in_fifo1, data_in_fifo2,
-        output reg rd_in_fifo1, rd_in_fifo2,
+        input sizet,
+        input [width - 1 : 0] in_fifo,
+        output reg rd_in_fifo1,
         output reg done_out,
         output reg wr_en,
         output reg [log2(size) - 1 : 0] wr_addr,
-        output reg [width - 1 : 0] data_out_one,
-        output reg [width - 1 : 0] data_out_two);
+        output reg [width - 1 : 0] fifo_out);
 
     localparam START = 2'b00, STATE0 = 2'b01, STATE1 = 2'b10, END = 2'b11;
   
     reg [1 : 0] state, next_state;
-    reg [width - 1 : 0] temp_reg_one, temp_reg_two, next_temp_reg_one, 
-            next_temp_reg_two;
+    reg [width - 1 : 0] temp_reg_one, next_temp_reg_one;
     reg [log2(size) - 1 : 0] counter, next_counter;
   
     always @(posedge clk)
@@ -64,15 +63,13 @@ module load_loc_mem_FSM_3
         begin 
             state <= START;
             counter <= 0;
-	          temp_reg_one <= 0;
-       	    temp_reg_two <= 0;
+	        temp_reg_one <= 0;
         end
         else
         begin 
             state <= next_state;
             counter <= next_counter;
             temp_reg_one <= next_temp_reg_one;
-            temp_reg_two <= next_temp_reg_two;
         end
     end
 
@@ -85,7 +82,6 @@ module load_loc_mem_FSM_3
             done_out <= 0;
             next_counter <= 0;
             rd_in_fifo1 <= 0;
-            rd_in_fifo2 <= 0;
             wr_addr <= 0;
             if (start_in)
                 next_state <= STATE0;
@@ -96,9 +92,7 @@ module load_loc_mem_FSM_3
         begin 
             wr_en <= 0;
             rd_in_fifo1 <= 1;
-            rd_in_fifo2 <= 1;
-            next_temp_reg_one <= data_in_fifo1;
-            next_temp_reg_two <= data_in_fifo2;
+            next_temp_reg_one <= in_fifo;
             next_state <= STATE1;
         end
         STATE1:
@@ -106,10 +100,8 @@ module load_loc_mem_FSM_3
             next_counter <= counter + 1;
             wr_en <= 1;
             rd_in_fifo1 <= 0;
-            rd_in_fifo2 <= 0;
             wr_addr <= counter;
-            data_out_one <= temp_reg_one;
-            data_out_two <= temp_reg_two;
+            fifo_out <= temp_reg_one;
             if (counter == (size - 1))
                 next_state <= END;
             else
