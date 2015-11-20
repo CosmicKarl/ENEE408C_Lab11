@@ -1,5 +1,5 @@
 # vsim -L ../../../bin -do ./simulate-do -c -lic_plus -novopt tb_stream_compute 
-# Refreshing /afs/glue.umd.edu/home/glue/d/m/dmoreno1/home/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_heterogeneity/test02/work.tb_stream_compute
+# Refreshing /afs/glue.umd.edu/home/glue/k/c/kcarp13/home/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_heterogeneity/test02/work.tb_stream_compute
 # Loading work.tb_stream_compute
 # Loading ../../../bin.fifo
 # Loading ../../../bin.stream_comp_invoke_top_module_FSM_1
@@ -8,51 +8,65 @@
 # Loading ../../../bin.load_loc_mem_FSM_3
 # Loading ../../../bin.comp_mode_FSM_3
 # Loading ../../../bin.stream_comp_enable
-# ** Warning: (vsim-3015) /homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/src/firing_state_FSM_2.v(144): [PCDPC] - Port size (20 or 20) does not match connection size (32) for port 'sizet'. The port definition is at: /homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/src/load_loc_mem_FSM_3.v(46).
+# ** Warning: (vsim-3015) /homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/src/firing_state_FSM_2.v(144): [PCDPC] - Port size (10 or 10) does not match connection size (32) for port 'sizet'. The port definition is at: /homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/src/load_loc_mem_FSM_3.v(46).
 #         Region: /tb_stream_compute/invoke_module/FSM2/loc_mem_command
-# ** Warning: (vsim-3015) /homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/src/firing_state_FSM_2.v(149): [PCDPC] - Port size (20 or 20) does not match connection size (32) for port 'sizet'. The port definition is at: /homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/src/load_loc_mem_FSM_3.v(46).
+# ** Warning: (vsim-3015) /homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/src/firing_state_FSM_2.v(149): [PCDPC] - Port size (10 or 10) does not match connection size (32) for port 'sizet'. The port definition is at: /homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/src/load_loc_mem_FSM_3.v(46).
 #         Region: /tb_stream_compute/invoke_module/FSM2/loc_mem_length
-# ** Warning: (vsim-3015) tb_heterogeneity.v(105): [PCDPC] - Port size (10 or 10) does not match connection size (20) for port 'length'. The port definition is at: /homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/src/stream_comp_enable.v(54).
-#         Region: /tb_stream_compute/enable_module
 # do ./simulate-do 
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 11 of file "data_in.txt". (Current address [10], address range [0:9])    : tb_heterogeneity.v(148)
+#    Time: 0 ps  Iteration: 0  Instance: /tb_stream_compute
 # in enable: pop in command:  0
 # in enable: pop in command:  1
-# in enable: pop in command:  2
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  2
-# in enable: pop in command:  2
-# in enable: pop in command:  2
-# in enable: pop in command:  2
-# in enable: pop in command:  2
-# in enable: pop in command:  2
-# in enable: pop in command:  2
-# in enable: pop in command:  2
-# in enable: pop in command:  2
-# time =                  181, Result =       8
-# in enable: pop in command:  2
-# in enable: pop in command:  2
-# in enable: pop in command:  2
-# in enable: pop in command:  2
-# in enable: pop in command:  2
-# in enable: pop in command:  2
-# in enable: pop in command:  2
-# in enable: pop in command:  2
-# in enable: pop in command:  2
-# in enable: pop in command:  2
- enable: pop in command:  2
+# in enable: pop in command:  1
+# in enable: pop in command:  1
+# in enable: pop in command:  1
+# in enable: pop in command:  1
+# in enable: pop in command:  1
+# in enable: pop in command:  1
+# in enable: pop in command:  1
+# in enable: pop in command:  1
+# in enable: pop in command:  1
+# in enable: pop in command:  1
+# in enable: pop in command:  1
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# time =                  135, Result =   16
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+# in enable: pop in command:  0
+ enable: pop in command:  0

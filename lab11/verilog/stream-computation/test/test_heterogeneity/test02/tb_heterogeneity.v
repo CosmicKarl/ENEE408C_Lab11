@@ -27,16 +27,27 @@ ENHANCEMENTS, OR MODIFICATIONS.
 ******************************************************************************/
 
 /******************************************************************************
-* Name        : tb_actor
-* Description : testbench for compute actor
+* Name        : tb_inner_product_FSM
+* Description : testbench for inner_product actor
+* Sub modules : Two input fifos, one output fifos, inner_product invoke/enable
 *               modules
 ******************************************************************************/
 
+/*******************************************************************************
+*  Parameters     : A. size -- the numer of tokens (integers) in each
+*                   input vector. So, if size = N, then this actor
+*                   performs an N x N inner product.
+*                   B. width -- the bit width for the integer data type
+*                   used in the inner product operations
+*******************************************************************************/
+
 `timescale 1ns/1ps
 module tb_stream_compute();
-    parameter buffer_size = 10, width = 20, buffer_size_out = 1;
+
+    parameter buffer_size = 10, width = 10, buffer_size_out = 1;
     parameter MODE_ONE = 2'b00, MODE_TWO = 2'b01, MODE_THREE = 2'b10;
 
+    /* Input vector size for the inner product. */
     parameter size = 5;
   
     reg clk, rst; 
@@ -46,6 +57,7 @@ module tb_stream_compute();
     reg [1 : 0]  next_mode_in;
     reg rd_en_result_fifo;
     
+    /* Input memories for inner product. */
     reg [width - 1 : 0] data_mem [0 : width - 1];
     reg [width - 1 : 0] length_mem [0 : width - 1];
     reg [width - 1 : 0] command_mem [0 : width - 1];
@@ -115,7 +127,7 @@ module tb_stream_compute();
         clk <= 0;
         for(j = 0; j < 100; j = j + 1)
         begin 
-            $fdisplay(descr, "comp_state: %d, ram_curr_index: %d, data_write_counter: %d", command_loc_mem_state, len_loc_mem_state, data_loc_mem_state);
+            //$fdisplay(descr, "comp_state: %d, ram_curr_index: %d, data_write_counter: %d", command_loc_mem_state, len_loc_mem_state, data_loc_mem_state);
             #1 clk <= 1;
             #1 clk <= 0;
         end
@@ -130,6 +142,9 @@ module tb_stream_compute();
         /* Set up a file to store the test output */
         descr = $fopen("out.txt");
         
+        /* Read text files and load the data into memory for input of inner 
+        product actor
+        */
         $readmemh("data_in.txt", data_mem);
         $readmemh("length_in.txt", length_mem);
         $readmemh("command_in.txt", command_mem);
@@ -156,7 +171,7 @@ module tb_stream_compute();
          */
 
         $fdisplay(descr, "Setting up input FIFOs");
-        for (i = 0; i < 3; i = i + 1)
+        for (i = 0; i < 1; i = i + 1)
         begin 
                #2; 
                length_in <= length_mem[i];
@@ -168,14 +183,14 @@ module tb_stream_compute();
                #2;
                wr_en_input  <= 0;
         end
-        for (i = 0; i < 15; i = i + 1)
+        for (i = 0; i < 10; i = i + 1)
         begin 
                #2; 
                data_in <= data_mem[i];
                #2;
                wr_en_input_data <= 1;
                $fdisplay(descr, "data[%d] = %d", i, data_in);
-               $fdisplay(descr, "data pop = %d", pop_in_data_fifo);
+               //$fdisplay(descr, "data pop = %d", pop_in_data_fifo);
                #2;
                wr_en_input_data  <= 0;
         end

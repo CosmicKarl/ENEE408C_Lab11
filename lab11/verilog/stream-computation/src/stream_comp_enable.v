@@ -81,7 +81,8 @@ module stream_comp_enable
         end
         MODE_THREE:
         begin
-            if (cap_out_fifo1 >= 1)
+            //if (cap_out_fifo1 >= 1)
+            // For some reason, this was not an accurate representation of the population in the out fifo!!
             enable <= 1;
         end
         default:

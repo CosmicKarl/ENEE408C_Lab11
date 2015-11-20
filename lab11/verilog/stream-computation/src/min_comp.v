@@ -27,7 +27,7 @@ module min_comp
   
     reg [1 : 0] state, next_state;
     reg [width - 1 : 0] next_min;
-    reg [log2(size) - 1 : 0] counter, next_counter;
+    reg [width - 1 : 0] counter, next_counter;
 
   
     always @(posedge clk)

@@ -33,38 +33,38 @@ vcomp_mode_FSM_3
 R1
 r1
 31
-I:05]e`db]5V3CNGcJc?^g1
-Z8 d/homes/jknapo/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/src
-w1448055439
+IZLQBKN`CLCTTmA_dk2iQZ0
+R2
+w1448060521
 R3
 R4
-L0 42
+L0 43
 R5
 R6
-Z9 o-work ../bin -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+Z8 o-work ../bin -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
 ncomp_mode_@f@s@m_3
 R7
 !s85 0
 !i10b 1
-!s100 iGnQNNF2B:R5eMbClbB_=3
-!s108 1448055455.596402
+!s100 EK2eLf8Al88dYV`ehVZ?;1
+!s108 1448060806.009830
 !i111 0
 vfifo
 R1
 r1
 31
 IU:0WJDeJFBmPlDG[F8UhK0
-R8
-w1447360702
+R2
+Z9 w1448034603
 8fifo.v
 Ffifo.v
 L0 48
 R5
-R9
+R8
 !s85 0
 !i10b 1
 !s100 ET?>EjQL1583Zm7L]6Lb<0
-!s108 1448055452.066262
+!s108 1448060803.822400
 !s107 fifo.v|
 !s90 -work|../bin|fifo.v|
 !i111 0
@@ -73,18 +73,18 @@ R1
 r1
 31
 I3cV:R17L?ni8049n@`nkl1
-R8
-Z10 w1447997211
+R2
+w1448058827
 8firing_state_FSM_2.v
 Ffiring_state_FSM_2.v
 L0 78
 R5
-R9
+R8
 nfiring_state_@f@s@m2
 !s85 0
 !i10b 1
 !s100 f^VRo07=kj>Fo=_SD>``J2
-!s108 1448055457.004733
+!s108 1448060806.855347
 !s107 firing_state_FSM_2.v|
 !s90 -work|../bin|firing_state_FSM_2.v|
 !i111 0
@@ -92,57 +92,59 @@ vload_loc_mem_FSM_3
 R1
 r1
 31
-IQkzfzjD363VJ>V^^]FR;?3
-R8
-R10
+I76nQ?^<E_2Nn70iIG[=oE0
+R2
+w1448058834
 8load_loc_mem_FSM_3.v
 Fload_loc_mem_FSM_3.v
 L0 42
 R5
-R9
+R8
 nload_loc_mem_@f@s@m_3
 !s85 0
 !i10b 1
-!s100 M;LedelYlZ;jOIClN;L021
-!s108 1448055456.331740
+!s100 oYid]5`;T:[:JeMUmR^BW3
+!s108 1448060806.428250
 !s107 load_loc_mem_FSM_3.v|
 !s90 -work|../bin|load_loc_mem_FSM_3.v|
 !i111 0
 vmax_comp
+Z10 !s110 1448060804
+IQI_b<I_cSM[N8oYdQYLkU0
 R1
-r1
-31
-I3^_f=NA@6cl@[6=SYiGCi0
-R8
-w1448050637
+R2
+w1448057728
 8max_comp.v
 Fmax_comp.v
 L0 15
 R5
-R9
-!s85 0
+r1
+31
+R8
 !i10b 1
-!s100 A21^^L85f2nK9T8m<FVgU0
-!s108 1448055453.436267
+!s100 JoJT_3ShhY?AW2=oP?0A;1
+!s85 0
+!s108 1448060804.649396
 !s107 max_comp.v|
 !s90 -work|../bin|max_comp.v|
 !i111 0
 vmin_comp
+In:7_J:olD]3Q5[^Q;nhD>1
 R1
-r1
-31
-IU`H8;M3b5LAA7@J]J?47M0
-R8
-w1448050647
+R2
+w1448057722
 8min_comp.v
 Fmin_comp.v
 L0 16
 R5
-R9
-!s85 0
+r1
+31
+R8
+R10
 !i10b 1
-!s100 2^e1FU2^BCV;SJ58TX>Y`1
-!s108 1448055452.718784
+!s100 PPKOYec]b8=bgZAA5L_LE2
+!s85 0
+!s108 1448060804.219178
 !s107 min_comp.v|
 !s90 -work|../bin|min_comp.v|
 !i111 0
@@ -151,17 +153,17 @@ R1
 r1
 31
 IR^ml:A=azHC6m:?3zjk;H2
-R8
-R10
+R2
+w1448058867
 8single_port_ram.v
 Fsingle_port_ram.v
 L0 60
 R5
-R9
+R8
 !s85 0
 !i10b 1
 !s100 ][A]<hMz3_WY?CZK><Ue<1
-!s108 1448055454.887250
+!s108 1448060805.569044
 !s107 single_port_ram.v|
 !s90 -work|../bin|single_port_ram.v|
 !i111 0
@@ -170,17 +172,17 @@ R1
 r1
 !s85 0
 31
-IGJeRzCDAHKX>cCU1PQ<;X3
-R8
-R10
+IE_3ckdo3a5^Pg924PCDDE0
+R2
+w1448060795
 8stream_comp_enable.v
 Fstream_comp_enable.v
 L0 46
 R5
-R9
+R8
 !i10b 1
-!s100 0g1>VYH=Y4OiYzGZL989V0
-!s108 1448055458.448170
+!s100 ?7G=mFUTejMW3<K;Oz6oK2
+!s108 1448060807.770710
 !s107 stream_comp_enable.v|
 !s90 -work|../bin|stream_comp_enable.v|
 !i111 0
@@ -189,44 +191,45 @@ R1
 r1
 31
 I2Q]Z5QFOmzFmA[UeeGi=31
-R8
-R10
+R2
+R9
 8stream_comp_invoke_top_module_FSM_1.v
 Fstream_comp_invoke_top_module_FSM_1.v
 L0 71
 R5
-R9
+R8
 nstream_comp_invoke_top_module_@f@s@m_1
 !s85 0
 !i10b 1
 !s100 @?6?89IW@b8h`=VRoPC:W2
-!s108 1448055457.753712
+!s108 1448060807.342408
 !s107 stream_comp_invoke_top_module_FSM_1.v|
 !s90 -work|../bin|stream_comp_invoke_top_module_FSM_1.v|
 !i111 0
 vsum_comp
-R1
-r1
-31
 IR;WEhSnI3^?0Q]aY;<_Zh1
-R8
-w1448052480
+R1
+R2
+w1448057282
 8sum_comp.v
 Fsum_comp.v
 L0 14
 R5
-R9
-!s85 0
+r1
+31
+R8
+!s110 1448060805
 !i10b 1
 !s100 n`8T>API0A<aHLYRfaJ:81
-!s108 1448055454.191734
+!s85 0
+!s108 1448060805.128701
 !s107 sum_comp.v|
 !s90 -work|../bin|sum_comp.v|
 !i111 0
 vsum_mode_FSM_3
 I=b0I`3H7??<SO4N=8oXaJ0
 R1
-R8
+d/homes/jknapo/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/src
 w1448047391
 8sum_mode_FSM_3.v
 Fsum_mode_FSM_3.v
@@ -234,7 +237,7 @@ L0 15
 R5
 r1
 31
-R9
+R8
 nsum_mode_@f@s@m_3
 !s110 1448048027
 !i10b 1

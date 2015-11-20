@@ -26,7 +26,7 @@ module max_comp
   
     reg [1 : 0] state, next_state;
     reg [width - 1 : 0] next_max;
-    reg [log2(size) - 1 : 0] counter, next_counter;
+    reg [width - 1 : 0] counter, next_counter;
 
     always @(posedge clk)
     begin
