@@ -1,9 +1,0 @@
-Start Reading in data
-data:    0, rd_addr:    0
-input[   1] =    5 | out =    0
-input[   2] =    3 | out =    5
-input[   3] =    2 | out =    5
-input[   4] =    6 | out =    5
-input[   5] =    8 | out =    6
-input[   6] =    x | out =    8
-out:    8

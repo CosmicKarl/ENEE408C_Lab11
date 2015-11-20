@@ -27,22 +27,12 @@ ENHANCEMENTS, OR MODIFICATIONS.
 ******************************************************************************/
 
 /******************************************************************************
-* Name        : tb_inner_product_FSM
-* Description : testbench for inner_product actor
-* Sub modules : Two input fifos, one output fifos, inner_product invoke/enable
-*               modules
+* Name        : tb_sum_comp
+* Description : testbench for sum_comp module
 ******************************************************************************/
 
-/*******************************************************************************
-*  Parameters     : A. size -- the numer of tokens (integers) in each
-*                   input vector. So, if size = N, then this actor
-*                   performs an N x N inner product.
-*                   B. width -- the bit width for the integer data type
-*                   used in the inner product operations
-*******************************************************************************/
-
 `timescale 1ns/1ps
-module tb_stream_compute();
+module tb_sum_comp();
 
     parameter buffer_size = 5, width = 10, buffer_size_out = 1;
     parameter MODE_ONE = 2'b00, MODE_TWO = 2'b01, MODE_THREE = 2'b10;

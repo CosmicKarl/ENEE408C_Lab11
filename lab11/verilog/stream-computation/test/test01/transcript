@@ -1,0 +1,12 @@
+# vsim -L ../../bin -do ./simulate-do -c -lic_plus -quiet -novopt tb_inner_product_FSM 
+# Refreshing /afs/glue.umd.edu/home/glue/j/k/jknapo/home/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test01/work.tb_inner_product_FSM
+# Refreshing /afs/glue.umd.edu/home/glue/j/k/jknapo/home/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/bin.fifo
+# Refreshing /afs/glue.umd.edu/home/glue/j/k/jknapo/home/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/bin.inner_product_invoke_top_module_1
+# Refreshing /afs/glue.umd.edu/home/glue/j/k/jknapo/home/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/bin.firing_state_FSM2
+# Refreshing /afs/glue.umd.edu/home/glue/j/k/jknapo/home/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/bin.single_port_ram
+# Refreshing /afs/glue.umd.edu/home/glue/j/k/jknapo/home/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/bin.load_loc_mem_FSM_3
+# Refreshing /afs/glue.umd.edu/home/glue/j/k/jknapo/home/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/bin.accumulator_mode_FSM_3
+# Refreshing /afs/glue.umd.edu/home/glue/j/k/jknapo/home/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/bin.innner_product_enable
+# do ./simulate-do 
+# time =                  105, Result =   55
+         105, Result =   55

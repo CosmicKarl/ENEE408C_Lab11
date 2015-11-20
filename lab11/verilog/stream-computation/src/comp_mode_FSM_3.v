@@ -27,13 +27,12 @@ ENHANCEMENTS, OR MODIFICATIONS.
 ******************************************************************************/
 
 /*******************************************************************************
-This FSM implements the core computational mode for the inner product actor.
+This FSM implements the core computational mode for the stream_comp actor.
 *******************************************************************************/
 
 /*******************************************************************************
 *  Parameters:      A. size -- the number of tokens (integers) in each
-*                   input vector. So, if size = N, then this actor
-*                   performs an N x N inner product.
+*                   input vector. So, if size = N
 *   
 *                   B. width -- the bit width for the integer data type
 *                   used in the inner product operations

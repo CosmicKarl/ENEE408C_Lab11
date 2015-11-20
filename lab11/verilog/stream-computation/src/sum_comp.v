@@ -1,6 +1,6 @@
 
 /*******************************************************************************
-This FSM implements the core computational mode for the inner product actor.
+This FSM implements the core computational mode for the sum_comp
 *******************************************************************************/
 
 /*******************************************************************************

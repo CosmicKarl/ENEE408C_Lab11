@@ -8,22 +8,23 @@ Z0 d/homes/jknapo/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computa
 !i10d 8192
 !i10e 25
 !i10f 100
-vtb_stream_compute
+vtb_max_comp
+!s110 1448050168
+!i10b 1
+!s100 l`kez1;@fzcGL2KaYIR0K1
+IYNUhdhRKoXZKTB6o9CWO=0
 V`JN@9S9cnhjKRR_L]QIcM3
+Z1 d/homes/jknapo/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_max
+w1448050153
+8tb_max_comp.v
+Ftb_max_comp.v
+L0 36
+Z2 OL;L;10.2c;57
 r1
 !s85 0
 31
-IH1:^anG<[O:3o^:GJjG`83
-Z1 d/homes/jknapo/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_max
-w1448048337
-8tb_stream_compute.v
-Ftb_stream_compute.v
-L0 45
-OL;L;10.2c;57
-o-L mtiAvm -L mtiOvm -L mtiUPF
-!i10b 1
-!s100 z2QSML5YST7z8UXWnThL@3
-!s108 1448048719.488540
-!s107 tb_stream_compute.v|
-!s90 tb_stream_compute.v|
+!s108 1448050168.417953
+!s107 tb_max_comp.v|
+!s90 tb_max_comp.v|
 !i111 0
+o-L mtiAvm -L mtiOvm -L mtiUPF

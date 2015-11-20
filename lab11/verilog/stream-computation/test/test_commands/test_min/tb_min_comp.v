@@ -27,22 +27,13 @@ ENHANCEMENTS, OR MODIFICATIONS.
 ******************************************************************************/
 
 /******************************************************************************
-* Name        : tb_inner_product_FSM
-* Description : testbench for inner_product actor
-* Sub modules : Two input fifos, one output fifos, inner_product invoke/enable
-*               modules
+* Name        : tb_min_comp
+* Description : testbench for min_comp
 ******************************************************************************/
 
-/*******************************************************************************
-*  Parameters     : A. size -- the numer of tokens (integers) in each
-*                   input vector. So, if size = N, then this actor
-*                   performs an N x N inner product.
-*                   B. width -- the bit width for the integer data type
-*                   used in the inner product operations
-*******************************************************************************/
 
 `timescale 1ns/1ps
-module tb_stream_compute();
+module tb_min_comp();
 
     parameter buffer_size = 5, width = 10, buffer_size_out = 1;
     parameter MODE_ONE = 2'b00, MODE_TWO = 2'b01, MODE_THREE = 2'b10;
@@ -60,8 +51,8 @@ module tb_stream_compute();
     /* Input memories for inner product. */
     reg [width - 1 : 0] data_mem [0 : buffer_size - 1];
 
-	max_comp #(.size(buffer_size), .width(width))
-		_max_comp (clk, rst, start_in, length_in, data_in, 
+	min_comp #(.size(buffer_size), .width(width))
+		_min_comp (clk, rst, start_in, length_in, data_in, 
 		done_out, rd_en, rd_addr, out); 
   
 
