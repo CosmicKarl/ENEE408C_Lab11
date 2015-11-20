@@ -1,0 +1,149 @@
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+Setting up input FIFOs
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+command[          0] =    0
+length[          0] =    5
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+command[          1] =    1
+length[          1] =    7
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+command[          2] =    2
+length[          2] =    4
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data[          0] =    5
+data pop =  0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data[          1] =    8
+data pop =  1
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data[          2] =    3
+data pop =  2
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data[          3] =    0
+data pop =  3
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data[          4] =    2
+data pop =  4
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data[          5] =    4
+data pop =  5
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data[          6] =    3
+data pop =  6
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data[          7] =    7
+data pop =  7
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data[          8] =    3
+data pop =  8
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data[          9] =    8
+data pop =  9
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data[         10] =    x
+data pop = 10
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data[         11] =    x
+data pop = 11
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data[         12] =    x
+data pop = 12
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data[         13] =    x
+data pop = 13
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data[         14] =    x
+data pop = 14
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data pop = 15
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+Executing firing for mode no. 1
+command pop =  3
+length pop =  3
+data pop = 15
+enable = 1
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+data pop = 15
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+Length    5
+data pop = 15
+Executing firing for mode no. 2
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    1
+comp_state:    0, ram_curr_index:    0, data_write_counter:    1
+comp_state:    0, ram_curr_index:    0, data_write_counter:    2
+comp_state:    0, ram_curr_index:    0, data_write_counter:    2
+comp_state:    0, ram_curr_index:    0, data_write_counter:    3
+comp_state:    0, ram_curr_index:    0, data_write_counter:    3
+comp_state:    0, ram_curr_index:    0, data_write_counter:    4
+comp_state:    0, ram_curr_index:    0, data_write_counter:    4
+comp_state:    0, ram_curr_index:    x, data_write_counter:    0
+comp_state:    1, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+Executing firing for mode no. 3
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+time =                  181, FIFO[0] =    x
+time =                  181, Result =    x
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0
+comp_state:    0, ram_curr_index:    0, data_write_counter:    0

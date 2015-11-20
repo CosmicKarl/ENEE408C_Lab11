@@ -1,0 +1,34 @@
+Tests started on:
+Fri Nov 20 14:33:16 EST 2015
+-----------------------------------------------------
+Test result for:
+/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test01
+-----------------------------------------------------
+Error comparison result for: 
+/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test01
+-----------------------------------------------------
+Test result for:
+/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test02
+-----------------------------------------------------
+Error comparison result for: 
+/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test02
+-----------------------------------------------------
+Test result for:
+/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test03
+-----------------------------------------------------
+Error comparison result for: 
+/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test03
+-----------------------------------------------------
+Test result for:
+/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test04
+-----------------------------------------------------
+Error comparison result for: 
+/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test04
+-----------------------------------------------------
+Test result for:
+/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test05
+-----------------------------------------------------
+Error comparison result for: 
+/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test05
+Tests completed on:
+Fri Nov 20 14:33:53 EST 2015
