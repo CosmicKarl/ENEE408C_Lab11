@@ -41,6 +41,9 @@ function makeone {
 # Build modules
 makeone fifo
 makeone single_port_ram
+makeone min_comp
+makeone sum_mode_FSM3
+makeone max_comp
 makeone comp_mode_FSM_3 
 makeone load_loc_mem_FSM_3
 makeone firing_state_FSM_2

@@ -52,13 +52,121 @@ module comp_mode_FSM_3
         output reg [width - 1 : 0] acc);
 
     localparam START = 2'b00, STATE0 = 2'b01, STATE1 = 2'b10, END = 2'b11;
-  
     reg [1 : 0] state, next_state;
+    // reg begin_min_comp, begin_max_comp, begin_sum_comp;
+
+
+
+    // min_comp #(.width(width)) min(clk, rst, begin_min_comp, length_in, data_in, done_comp_min, rd_en_min, rd_addr_min, acc_min);
+    // max_comp #(.width(width)) max(clk, rst, begin_max_comp, length_in, data_in, done_comp_max, rd_en_max, rd_addr_max, acc_max);
+    // sum_mode_FSM_3 #(.width(width)) sum(clk, rst, begin_sum_comp, length_in, data_in, done_comp_sum, rd_en_sum, rd_addr_sum, acc_sum);
+
+    // reg [width - 1:0] rd_addr_reg;
+    // reg done_comp;
+    // assign rd_addr = rd_addr_reg;
     reg [width - 1 : 0] next_acc;
     reg [width - 1 : 0] counter, next_counter;
 
-    assign state_out = counter;
+    // assign state_out = rd_addr_reg;
   
+    // always @(posedge clk)
+    // begin
+    //     if (!rst)
+    //     begin 
+    //         state <= START;
+    //         begin_min_comp <= 0;
+    //         begin_max_comp <= 0;
+    //         begin_sum_comp <= 0;
+    //         rd_addr_reg <= 0;
+    //         done_comp <= 0;
+    //         //acc <= 0;
+    //         //counter <= 0;
+    //     end
+    //     else
+    //     begin 
+    //         state <= next_state;
+    //         //acc <= next_acc;
+    //         //counter <= next_counter;
+    //     end
+    // end
+  
+    // //assign rd_addr = counter;
+
+    // always @(state, start_in, command_in)
+    // begin
+    //     case(state)
+    //     START:
+    //     begin
+    //         done_out <= 0;
+    //         //next_acc <= acc;
+    //         //next_counter <= 0;
+    //         //rd_en <= 0;
+    //         if (start_in) 
+    //         begin
+    //             case(command_in)
+    //             0:
+    //             begin
+    //                 rd_addr_reg <= rd_addr_min;
+    //                 begin_min_comp <= 1;
+    //             end
+    //             1:
+    //             begin
+    //                 rd_addr_reg <= rd_addr_max;
+    //                 begin_max_comp <= 1;
+    //             end
+    //             2:
+    //             begin
+    //                 rd_addr_reg <= rd_addr_sum;
+    //                 begin_sum_comp <= 1;
+    //             end
+    //             endcase
+    //             next_state <= STATE0;
+    //         end     
+    //         else
+    //             next_state <= START;         
+    //     end
+    //     STATE0:
+    //     begin 
+    //         begin_min_comp <= 0;
+    //         begin_max_comp <= 0;
+    //         begin_sum_comp <= 0;
+    //         case(command_in)
+    //         0:
+    //         begin
+    //             rd_addr_reg <= rd_addr_min;
+    //             rd_en <= rd_en_min;
+    //             acc <= acc_min;
+    //             done_comp <= done_comp_min;
+    //         end
+    //         1:
+    //         begin
+    //             rd_addr_reg <= rd_addr_max;
+    //             rd_en <= rd_en_max;
+    //             acc <= acc_max;
+    //             done_comp <= done_comp_max;
+    //         end
+    //         2:
+    //         begin
+    //             rd_addr_reg <= rd_addr_sum;
+    //             rd_en <= rd_en_sum;
+    //             acc <= acc_sum;
+    //             done_comp <= done_comp_sum;
+    //         end
+    //         endcase
+    //         if(done_comp)
+    //             next_state <= END;
+    //         else 
+    //             next_state <= STATE0;
+    //     end
+    //     END:
+    //     begin 
+    //         done_out <= 1;   
+    //         next_state <= START;
+    //     end
+    //     endcase
+    // end
+
+
     always @(posedge clk)
     begin
         if (!rst)
@@ -96,15 +204,30 @@ module comp_mode_FSM_3
             next_counter <= counter + 1;
             rd_en <= 1;
             next_acc <= data_in;
-            next_state <= END;
+            next_state <= STATE1;
         end
         STATE1:
         begin 
             next_counter <= counter + 1;
             rd_en <= 1;
-            next_acc <= acc + data_in;
+            case(command_in)
+            0:
+            begin
+                if (acc > data_in)
+                    next_acc <= data_in;
+            end
+            1:
+            begin
+                if (acc < data_in)
+                    next_acc <= data_in;
+            end
+            2:
+            begin
+               next_acc <= acc + data_in;
+            end
+            endcase
             //if (counter == (length_in - 1))
-            if (counter == (5 - 1))
+            if (counter == (length_in - 1))
                 next_state <= END;
             else
                 next_state <= STATE1;
@@ -119,46 +242,6 @@ module comp_mode_FSM_3
         end
         endcase
     end
-    // begin 
-    //     case (state)
-    //    START:
-    //    begin
-    //         done_out <= 0;
-    //    	    next_acc <= acc;
-    //    	    next_counter <= 0;
-    //    	    rd_en <= 0;
-    //         if (start_in)
-    //             next_state <= STATE0;
-    //         else
-    //             next_state <= START;		    
-    //     end
-    //     STATE0:
-    //     begin 
-    //         next_counter <= counter + 1;
-    //         rd_en <= 1;
-    //         //next_acc <= ram_out1 * ram_out2;
-    //         next_state <= STATE1;
-    //     end
-    //     STATE1:
-    //     begin 
-    //         next_counter <= counter + 1;
-    //         rd_en <= 1;
-    //         //next_acc <= acc + ram_out1 * ram_out2;
-    //         if (counter == (size - 1))
-    //             next_state <= END;
-    //         else
-    //             next_state <= STATE1;
-    //     end
-    //     END:
-    //     begin 
-    //         done_out <= 1;
-    //         next_counter <= 0;
-    //         rd_en <= 0;
-    //         next_acc <= acc;	    
-    //         next_state <= START;
-    //     end
-    //     endcase
-    // end
 
     function integer log2;
     input [31:0] value;

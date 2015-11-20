@@ -48,14 +48,14 @@ module max_comp
         input [width - 1 : 0] length, data,
         output reg done_out,
         output reg rd_en,
-        output [log2(size) - 1 : 0] rd_addr,
+        output [width - 1 : 0] rd_addr,
         output reg [width - 1 : 0] max);
 
     localparam START = 2'b00, STATE0 = 2'b01, STATE1 = 2'b10, END = 2'b11;
   
     reg [1 : 0] state, next_state;
     reg [width - 1 : 0] next_max;
-    reg [log2(size) - 1 : 0] counter, next_counter;
+    reg [width - 1 : 0] counter, next_counter;
 
 	reg [width - 1 : 0] max_val;
   
@@ -77,7 +77,7 @@ module max_comp
   
     assign rd_addr = counter;
 
-    always @(state, start_in, command_in, length_in, data_in, counter)
+    always @(state, start_in, length, data, counter)
     begin 
         case (state)
 	      START:
@@ -107,7 +107,7 @@ module max_comp
             end
 
             //determine which state we go to next
-            if (counter == (size - 1))
+            if (counter == (length - 1))
                 next_state <= END;
             else
                 next_state <= STATE1;
@@ -121,6 +121,8 @@ module max_comp
         end
         endcase
     end
+
+
 
     function integer log2;
     input [31:0] value;

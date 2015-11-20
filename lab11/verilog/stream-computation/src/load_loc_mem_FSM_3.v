@@ -45,7 +45,7 @@ module load_loc_mem_FSM_3
         input start_in,
         input [width - 1 : 0] sizet,
         input [width - 1 : 0] in_fifo,
-        output [width-1 : 0] state_out,
+        output [width - 1 : 0] state_out,
         output reg rd_in_fifo1,
         output reg done_out,
         output reg wr_en,
@@ -58,7 +58,7 @@ module load_loc_mem_FSM_3
     reg [width - 1 : 0] temp_reg_one, next_temp_reg_one;
     reg [width - 1 : 0] counter, next_counter;
 
-    assign state_out = wr_addr;
+    assign state_out = in_fifo;
   
     always @(posedge clk)
     begin

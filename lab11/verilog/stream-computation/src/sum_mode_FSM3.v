@@ -19,14 +19,14 @@ module sum_mode_FSM_3
         input [width - 1 : 0] length, data,
         output reg done_out,
         output reg rd_en,
-        output [log2(size) - 1 : 0] rd_addr,
+        output [width - 1 : 0] rd_addr,
         output reg [width - 1 : 0] sum);
 
     localparam START = 2'b00, STATE0 = 2'b01, STATE1 = 2'b10, END = 2'b11;
   
     reg [1 : 0] state, next_state;
     reg [width - 1 : 0] next_sum;
-    reg [log2(size) - 1 : 0] counter, next_counter;
+    reg [width - 1 : 0] counter, next_counter;
   
     always @(posedge clk)
     begin
@@ -46,7 +46,7 @@ module sum_mode_FSM_3
   
     assign rd_addr = counter;
 
-    always @(state, start_in, ram_out1, ram_out2, counter)
+    always @(state, start_in, length, data, counter)
     begin 
         case (state)
 		/*Initialize parameters*/	

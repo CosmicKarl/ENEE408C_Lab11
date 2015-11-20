@@ -1,23 +1,16 @@
 # vsim -L ../../bin -do ./simulate-do -c -lic_plus -novopt tb_stream_compute 
-# Refreshing /afs/glue.umd.edu/home/glue/k/c/kcarp13/home/enee408c_user/labs/lab11/verilog/stream-computation/test/test04/work.tb_stream_compute
+# Refreshing /afs/glue.umd.edu/home/glue/k/c/kcarp13/home/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test04/work.tb_stream_compute
 # Loading work.tb_stream_compute
-# Refreshing /afs/glue.umd.edu/home/glue/k/c/kcarp13/home/enee408c_user/labs/lab11/verilog/stream-computation/bin.fifo
 # Loading ../../bin.fifo
-# Refreshing /afs/glue.umd.edu/home/glue/k/c/kcarp13/home/enee408c_user/labs/lab11/verilog/stream-computation/bin.stream_comp_invoke_top_module_FSM_1
 # Loading ../../bin.stream_comp_invoke_top_module_FSM_1
-# Refreshing /afs/glue.umd.edu/home/glue/k/c/kcarp13/home/enee408c_user/labs/lab11/verilog/stream-computation/bin.firing_state_FSM2
 # Loading ../../bin.firing_state_FSM2
-# Refreshing /afs/glue.umd.edu/home/glue/k/c/kcarp13/home/enee408c_user/labs/lab11/verilog/stream-computation/bin.single_port_ram
 # Loading ../../bin.single_port_ram
-# Refreshing /afs/glue.umd.edu/home/glue/k/c/kcarp13/home/enee408c_user/labs/lab11/verilog/stream-computation/bin.load_loc_mem_FSM_3
 # Loading ../../bin.load_loc_mem_FSM_3
-# Refreshing /afs/glue.umd.edu/home/glue/k/c/kcarp13/home/enee408c_user/labs/lab11/verilog/stream-computation/bin.comp_mode_FSM_3
 # Loading ../../bin.comp_mode_FSM_3
-# Refreshing /afs/glue.umd.edu/home/glue/k/c/kcarp13/home/enee408c_user/labs/lab11/verilog/stream-computation/bin.stream_comp_enable
 # Loading ../../bin.stream_comp_enable
-# ** Warning: (vsim-3015) /homes/kcarp13/enee408c_user/labs/lab11/verilog/stream-computation/src/firing_state_FSM_2.v(144): [PCDPC] - Port size (10 or 10) does not match connection size (32) for port 'sizet'. The port definition is at: /homes/kcarp13/enee408c_user/labs/lab11/verilog/stream-computation/src/load_loc_mem_FSM_3.v(46).
+# ** Warning: (vsim-3015) /homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/src/firing_state_FSM_2.v(144): [PCDPC] - Port size (10 or 10) does not match connection size (32) for port 'sizet'. The port definition is at: /homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/src/load_loc_mem_FSM_3.v(46).
 #         Region: /tb_stream_compute/invoke_module/FSM2/loc_mem_command
-# ** Warning: (vsim-3015) /homes/kcarp13/enee408c_user/labs/lab11/verilog/stream-computation/src/firing_state_FSM_2.v(149): [PCDPC] - Port size (10 or 10) does not match connection size (32) for port 'sizet'. The port definition is at: /homes/kcarp13/enee408c_user/labs/lab11/verilog/stream-computation/src/load_loc_mem_FSM_3.v(46).
+# ** Warning: (vsim-3015) /homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/src/firing_state_FSM_2.v(149): [PCDPC] - Port size (10 or 10) does not match connection size (32) for port 'sizet'. The port definition is at: /homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/src/load_loc_mem_FSM_3.v(46).
 #         Region: /tb_stream_compute/invoke_module/FSM2/loc_mem_length
 # do ./simulate-do 
 # ** Warning: (vsim-PLI-3407) Too many data words read on line 11 of file "data_in.txt". (Current address [10], address range [0:9])    : tb_stream_compute.v(148)
@@ -37,11 +30,6 @@
 # in enable: pop in command:  3
 # in enable: pop in command:  3
 # in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
-# in enable: pop in command:  3
 # in enable: pop in command:  2
 # in enable: pop in command:  2
 # in enable: pop in command:  2
@@ -51,7 +39,18 @@
 # in enable: pop in command:  2
 # in enable: pop in command:  2
 # in enable: pop in command:  2
-# time =                  181, Result =    x
+# time =                  159, Result =   19
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
 # in enable: pop in command:  2
 # in enable: pop in command:  2
 # in enable: pop in command:  2
