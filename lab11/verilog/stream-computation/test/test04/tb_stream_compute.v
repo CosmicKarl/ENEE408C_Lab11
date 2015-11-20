@@ -27,8 +27,8 @@ ENHANCEMENTS, OR MODIFICATIONS.
 ******************************************************************************/
 
 /******************************************************************************
-* Name        : tb_inner_product_FSM
-* Description : testbench for inner_product actor
+* Name        : tb_stream_comp
+* Description : testbench for stream_comp 
 * Sub modules : Two input fifos, one output fifos, inner_product invoke/enable
 *               modules
 ******************************************************************************/

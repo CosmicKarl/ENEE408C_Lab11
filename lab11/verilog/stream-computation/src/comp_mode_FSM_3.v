@@ -27,7 +27,7 @@ ENHANCEMENTS, OR MODIFICATIONS.
 ******************************************************************************/
 
 /*******************************************************************************
-This FSM implements the core computational mode for the stream_comp actor.
+This FSM implements the core computational mode for the stream_comp.
 *******************************************************************************/
 
 /*******************************************************************************
@@ -48,126 +48,87 @@ module comp_mode_FSM_3
         output reg done_out,
         output reg rd_en,
         output [width - 1 : 0] rd_addr,
-        output reg [width - 1 : 0] acc);
+        output reg [width - 1 : 0] out);
 
-    localparam START = 2'b00, STATE0 = 2'b01, STATE1 = 2'b10, END = 2'b11;
+    localparam MIN = 2'b00, MAX = 2'b01, SUM = 2'b10;
   
-    reg [1 : 0] state, next_state;
-    reg [width - 1 : 0] next_acc;
-    reg [width - 1 : 0] counter, next_counter;
 
-    assign state_out = counter;
-  
-    always @(posedge clk)
+	wire rd_en_wire, done_out_wire;
+	wire [width - 1 : 0] module_out;
+	reg en_min, en_max, en_sum;
+	reg [1 : 0] state, next_state;
+    reg [width - 1 : 0] counter, next_counter, prev_command;
+
+	always @(posedge clk)
     begin
         if (!rst)
         begin 
-            state <= START;
-            acc <= 0;
 	        counter <= 0;
         end
         else
         begin 
             state <= next_state;
-            acc <= next_acc;
 	        counter <= next_counter;
         end
-    end
+    end 
   
-    assign rd_addr = counter;
+	sum_comp #(.width(width))
+		_sum_comp(clk, rst, en_sum, length_in, data_in, done_out_wire, rd_en_wire,
+		rd_addr, module_out);
 
-    always @(state, start_in, command_in, length_in, data_in, counter)
+	min_comp #(.width(width))
+		_min_comp(clk, rst, en_min, length_in, data_in, done_out_wire, rd_en_wire,
+		rd_addr, module_out);
+
+	max_comp #(.width(width))
+		_max_comp(clk, rst, en_max, length_in, data_in, done_out_wire, rd_en_wire,
+		rd_addr, module_out);
+
+	/*Connect sub module outs to fsm2*/
+    assign rd_addr = counter;
+    assign state_out = counter;
+	
+	always @(posedge clk)
+	begin
+		out <= module_out;
+		rd_en <= rd_en_wire;
+		done_out <= done_out_wire;
+	end
+	
+
+	/*Choose what what module is enabled to read from data*/
+    always @(state, start_in, command_in,  data_in)
     begin
-        case(state)
-        START:
-        begin
-            done_out <= 0;
-            next_acc <= acc;
-            next_counter <= 0;
-            rd_en <= 0;
-            if (start_in)
-                next_state <= STATE0;
-            else
-                next_state <= START;         
-        end
-        STATE0:
-        begin 
-            next_counter <= counter + 1;
-            rd_en <= 1;
-            next_acc <= data_in;
-            next_state <= END;
-        end
-        STATE1:
-        begin 
-            next_counter <= counter + 1;
-            rd_en <= 1;
-            next_acc <= acc + data_in;
-            //if (counter == (length_in - 1))
-            if (counter == (5 - 1))
-                next_state <= END;
-            else
-                next_state <= STATE1;
-        end
-        END:
-        begin 
-            done_out <= 1;
-            next_counter <= 0;
-            rd_en <= 0;
-            next_acc <= acc;     
-            next_state <= START;
-        end
+        case(command_in)
+			MIN:
+			begin
+				en_min <= 1;
+				en_max <= 0;
+				en_sum <= 0;
+			end
+
+			MAX:
+			begin 
+				en_min <= 0;
+				en_max <= 1;
+				en_sum <= 0;
+			end
+
+			SUM:
+			begin
+				en_min <= 0;
+				en_max <= 0;
+				en_sum <= 1;		
+			end
+			
+			default:
+			begin 
+				en_min <= 0;
+				en_max <= 0;
+				en_sum <= 0;		
+			end
         endcase
     end
-    // begin 
-    //     case (state)
-    //    START:
-    //    begin
-    //         done_out <= 0;
-    //    	    next_acc <= acc;
-    //    	    next_counter <= 0;
-    //    	    rd_en <= 0;
-    //         if (start_in)
-    //             next_state <= STATE0;
-    //         else
-    //             next_state <= START;		    
-    //     end
-    //     STATE0:
-    //     begin 
-    //         next_counter <= counter + 1;
-    //         rd_en <= 1;
-    //         //next_acc <= ram_out1 * ram_out2;
-    //         next_state <= STATE1;
-    //     end
-    //     STATE1:
-    //     begin 
-    //         next_counter <= counter + 1;
-    //         rd_en <= 1;
-    //         //next_acc <= acc + ram_out1 * ram_out2;
-    //         if (counter == (size - 1))
-    //             next_state <= END;
-    //         else
-    //             next_state <= STATE1;
-    //     end
-    //     END:
-    //     begin 
-    //         done_out <= 1;
-    //         next_counter <= 0;
-    //         rd_en <= 0;
-    //         next_acc <= acc;	    
-    //         next_state <= START;
-    //     end
-    //     endcase
-    // end
-
-    function integer log2;
-    input [31:0] value;
-    begin
-        value = value - 1;
-        for (log2 = 0; value > 0; log2 = log2 + 1) begin
-            value = value >> 1;
-        end
-    end
-    endfunction 
 
 endmodule    
   

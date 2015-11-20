@@ -1,4 +1,3 @@
-
 /*******************************************************************************
 This FSM implements the core computational mode for the sum_comp
 *******************************************************************************/
@@ -34,13 +33,13 @@ module sum_comp
         begin 
             state <= START;
             sum <= 0;
-	          counter <= 0;
+	        counter <= 0;
         end
         else
         begin 
             state <= next_state;
             sum <= next_sum;
-	          counter <= next_counter;
+	        counter <= next_counter;
         end
     end
   
