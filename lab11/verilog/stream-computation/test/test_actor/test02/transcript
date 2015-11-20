@@ -1,0 +1,56 @@
+# vsim -L ../../../bin -do ./simulate-do -c -lic_plus -novopt tb_stream_compute 
+# Refreshing /afs/glue.umd.edu/home/glue/d/m/dmoreno1/home/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test02/work.tb_stream_compute
+# Loading work.tb_stream_compute
+# Loading ../../../bin.fifo
+# Loading ../../../bin.stream_comp_invoke_top_module_FSM_1
+# Loading ../../../bin.firing_state_FSM2
+# Loading ../../../bin.single_port_ram
+# Loading ../../../bin.load_loc_mem_FSM_3
+# Loading ../../../bin.comp_mode_FSM_3
+# Loading ../../../bin.stream_comp_enable
+# ** Warning: (vsim-3015) /homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/src/firing_state_FSM_2.v(144): [PCDPC] - Port size (10 or 10) does not match connection size (32) for port 'sizet'. The port definition is at: /homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/src/load_loc_mem_FSM_3.v(46).
+#         Region: /tb_stream_compute/invoke_module/FSM2/loc_mem_command
+# ** Warning: (vsim-3015) /homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/src/firing_state_FSM_2.v(149): [PCDPC] - Port size (10 or 10) does not match connection size (32) for port 'sizet'. The port definition is at: /homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/src/load_loc_mem_FSM_3.v(46).
+#         Region: /tb_stream_compute/invoke_module/FSM2/loc_mem_length
+# do ./simulate-do 
+# in enable: pop in command:  0
+# in enable: pop in command:  1
+# in enable: pop in command:  2
+# in enable: pop in command:  3
+# in enable: pop in command:  3
+# in enable: pop in command:  3
+# in enable: pop in command:  3
+# in enable: pop in command:  3
+# in enable: pop in command:  3
+# in enable: pop in command:  3
+# in enable: pop in command:  3
+# in enable: pop in command:  3
+# in enable: pop in command:  3
+# in enable: pop in command:  3
+# in enable: pop in command:  3
+# in enable: pop in command:  3
+# in enable: pop in command:  3
+# in enable: pop in command:  3
+# in enable: pop in command:  3
+# in enable: pop in command:  3
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# time =                  181, Result =    x
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+# in enable: pop in command:  2
+ enable: pop in command:  2
