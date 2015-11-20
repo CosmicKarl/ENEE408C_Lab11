@@ -8,4 +8,20 @@ Dominick Moreno
 
 Lab Report
 
-	Main folder for the Lide_V lab
+	This lab was something of a struggle for the three of us. We had
+difficulty understanding the high level LIDE_V concepts for most of
+our time spent on this project. But once we understood the high level
+and it was time to implement everything we struggled to move data
+around between the 3 FSM modules. Even getting anything to compile 
+was difficult because it was hard to understand anything in the
+example. The FIFO objects were poorly documented in their source files
+and the variable names in the inner product modules weren't very helpful.
+
+	Other classes unfortunately had major deadlines just before this project
+was due, which made it difficult to put an appropriate amount of time into
+understanding the material for this lab.
+
+	However, this being our second project, we've gotten much more
+comfortable using source control. There was very little stepping on each
+other's toes this time and it felt more natural dividing up the work this
+time around
