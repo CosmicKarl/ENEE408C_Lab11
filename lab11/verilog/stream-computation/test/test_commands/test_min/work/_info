@@ -1,0 +1,29 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 d/homes/jknapo/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_min
+!s112 0.1
+!i10d 8192
+!i10e 25
+!i10f 100
+vtb_stream_compute
+V`JN@9S9cnhjKRR_L]QIcM3
+r1
+!s85 0
+31
+I`IGLIiEWk[D8T9mX7i[Id2
+Z1 d/homes/jknapo/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_min
+w1448048307
+8tb_stream_compute.v
+Ftb_stream_compute.v
+L0 45
+OL;L;10.2c;57
+o-L mtiAvm -L mtiOvm -L mtiUPF
+!i10b 1
+!s100 ;8I6C2l^`_Un=[1lkNT6S2
+!s108 1448048311.636628
+!s107 tb_stream_compute.v|
+!s90 tb_stream_compute.v|
+!i111 0

@@ -1,0 +1,7 @@
+# vsim -L ../../../bin -do ./simulate-do -c -lic_plus -novopt tb_stream_compute 
+# Loading work.tb_stream_compute
+# Loading ../../../bin.max_comp
+# do ./simulate-do 
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 6 of file "data_mem.txt". (Current address [5], address range [0:4])    : tb_stream_compute.v(95)
+#    Time: 0 ps  Iteration: 0  Instance: /tb_stream_compute
+nstance: /tb_stream_compute

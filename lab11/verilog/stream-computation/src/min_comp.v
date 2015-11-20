@@ -48,7 +48,7 @@ module min_comp
         input [width - 1 : 0] length, data,
         output reg done_out,
         output reg rd_en,
-        output [log2(size) - 1 : 0] rd_addr,
+        output [width - 1 : 0] rd_addr,
         output reg [width - 1 : 0] min);
 
     localparam START = 2'b00, STATE0 = 2'b01, STATE1 = 2'b10, END = 2'b11;
@@ -57,7 +57,6 @@ module min_comp
     reg [width - 1 : 0] next_min;
     reg [log2(size) - 1 : 0] counter, next_counter;
 
-	reg [width - 1 : 0] min_val;
   
     always @(posedge clk)
     begin
@@ -77,7 +76,7 @@ module min_comp
   
     assign rd_addr = counter;
 
-    always @(state, start_in, command_in, length_in, data_in, counter)
+    always @(state, start_in, length, data, counter)
     begin 
         case (state)
 	      START:
@@ -95,19 +94,19 @@ module min_comp
         begin 
             next_counter <= counter + 1;
             rd_en <= 1;
-            min_val <= data;
+            next_min <= data;
             next_state <= STATE1;
         end
         STATE1:
         begin 
             next_counter <= counter + 1;
             rd_en <= 1;
-            if (min_val > data) begin
-            	min_val <= data;
+            if (next_min > data) begin
+            	next_min <= data;
             end
 
             //determine which state we go to next
-            if (counter == (size - 1))
+            if (counter == (length))
                 next_state <= END;
             else
                 next_state <= STATE1;
