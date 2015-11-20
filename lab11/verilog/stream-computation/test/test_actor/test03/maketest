@@ -35,4 +35,4 @@ if ! [ -d work ]; then
     vmap work work
 fi
 
-vlog tb_stream_compute.v
+vlog tb_actor.v
