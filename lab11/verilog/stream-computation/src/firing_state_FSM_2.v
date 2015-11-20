@@ -58,8 +58,9 @@ ENHANCEMENTS, OR MODIFICATIONS.
 *                   start_in - nested FSM start signal from parent FSM
 *                   next_mode_in - selected actor mode
 *
-* Output ports    : rd_in_fifo1 - read enable signal for input fifo1
-*                   rd_in_fifo2 - read enable signal for input fifo2
+* Output ports    : rd_data_in_fifo - read enable signal for data imput
+*                   rd_command_in_fifo - read enable signal for command imput
+*                   rd_length_in_fifo - read enable signal for length imput
 *                   next_mode_out - CFDF next mode output for actor firing
 *                   done_out - nested FSM end signal to parent FSM
 *                   wr_out_fifo1 - output fifo write enable signal
@@ -75,16 +76,20 @@ ENHANCEMENTS, OR MODIFICATIONS.
 `timescale 1ns/1ps
 
 module firing_state_FSM2
-        #(parameter size = 3, width = 10)(
+        #(parameter width = 10)(
         input clk,rst,
         input [width - 1 : 0] data_in_fifo,
         input [width - 1 : 0] length_in_fifo, 
         input [width - 1 : 0] command_in_fifo,
         input start_in,
         input [1 : 0] next_mode_in,
+        output [width-1 : 0] command_loc_mem_state,
+        output [width-1 : 0] data_loc_mem_state,
+        output [width-1 : 0] len_loc_mem_state,
         output rd_data_in_fifo,
         output rd_length_in_fifo,
         output rd_command_in_fifo,
+        output [width - 1 : 0]length_out_again,
         output reg [1 : 0] next_mode_out,
         output reg done_out,
         output reg wr_out_fifo1,
@@ -94,50 +99,66 @@ module firing_state_FSM2
     localparam MODE_ONE = 2'b00, MODE_TWO = 2'b01, MODE_THREE = 2'b10;
     localparam STATE_START = 3'b000, STATE_MODE_ONE_START = 3'b001, 
 	        STATE_MODE_ONE_WAIT = 3'b010, STATE_MODE_TWO_START = 3'b011,
-	        STATE_MODE_TWO_WAIT = 3'b100, STATE_MODE_THREE = 3'b101,
-            STATE_END = 3'b110;
+	        STATE_MODE_TWO_WAIT = 3'b100, STATE_MODE_TWO_WAIT_COMPUTE = 3'b101,
+            STATE_MODE_THREE = 3'b110,
+            STATE_END = 3'b111;
 
     reg [2 : 0] state_module, next_state_module;
-    reg read_from_command_done, read_from_length_done, start_in_child_mode1, start_in_child_mode2;
+    reg begin_read_command, begin_read_length, begin_read_data, begin_compute;
     reg wr_en;
     
-    wire [width - 1 : 0] acc_out;
+    wire [width - 1 : 0] result;
     wire done_out_mode1, done_out_mode2;
     wire [width - 1 : 0] ram_out1, ram_out2, ram_out3;
-    wire [log2(size) - 1 : 0] wr_addr, rd_addr;
+    wire [width - 1 : 0] wr_addr, wr_addr_data, rd_addr;
     wire [width - 1 : 0] command_out, length_out, data_out;
-    wire rd_en;
+    wire rd_en, rd_en_data;
+
+    //reg [width-1:0] na;
+    //reg [width-1:0] naa;
+
+
+    //assign command_loc_mem_state = 0;
+    //assign data_loc_mem_state = 0;
+    assign len_loc_mem_state = ram_out3;
+    /* 
+     * Since we'll only be reading one value at a time, we can rest assured ram is always
+     * at address 0
+     */
+    assign length_out_again = length_out;
         
-    single_port_ram #(.size(size), .width(width))
+    single_port_ram #(.width(width))
             RAM1(command_out, wr_addr, rd_addr, wr_en_ram, rd_en, clk, 
             ram_out1);
-    single_port_ram #(.size(size), .width(width))
+    single_port_ram #(.width(width))
             RAM2(length_out, wr_addr, rd_addr, wr_en_ram, rd_en, clk, 
             ram_out2);
-    single_port_ram #(.size(size), .width(width))
-            RAM3(data_out, wr_addr, rd_addr, wr_en_ram, rd_en, clk, 
+    single_port_ram #(.width(width))
+            RAM3(data_out, wr_addr_data, rd_addr, wr_en_ram_data, rd_en_data, clk, 
             ram_out3);
 
     /* Instantiation of nested FSM for core compuation CFDF mode 1. */	    
     load_loc_mem_FSM_3 #(.width(width))
-            loc_mem_command(clk, rst, start_in_child_mode1, size, command_in_fifo, 
-            rd_in_fifo1, read_from_command_done, 
+            loc_mem_command(clk, rst, begin_read_command, 1, command_in_fifo, ,
+            rd_command_in_fifo, read_from_command_done, 
             wr_en_ram, wr_addr, command_out);
 
     load_loc_mem_FSM_3 #(.width(width))
-            loc_mem_length(clk, rst, start_in_child_mode1, size, length_in_fifo, 
-            rd_in_fifo1, read_from_length_done, 
+            loc_mem_length(clk, rst, begin_read_length, 1, length_in_fifo, ,
+            rd_length_in_fifo, read_from_length_done, 
             wr_en_ram, wr_addr, length_out);
 
     load_loc_mem_FSM_3 #(.width(width))
-            loc_mem_data(clk, rst, start_in_child_mode1, size, data_in_fifo, 
-            rd_in_fifo1, done_out_child_mode1, 
-            wr_en_ram, wr_addr, data_out_one);
+            loc_mem_data(clk, rst, begin_read_data, length_out, data_in_fifo, data_loc_mem_state,
+            rd_data_in_fifo, read_from_data_done, 
+            wr_en_ram_data, wr_addr_data, data_out);
 
     /* Instantiation of nested FSM for core compuation CFDF mode 2. */
-    accumulator_mode_FSM_3 #(.size(size), .width(width)) accumulator(clk, rst, 
-            start_in_child_mode2, ram_out1, ram_out2, done_out_child_mode2, 
-            rd_en, rd_addr, acc_out);
+    comp_mode_FSM_3 #(.width(width)) accumulator(clk, rst, 
+            begin_compute, command_out, length_out, ram_out3, 
+            command_loc_mem_state,
+            done_compute, 
+            rd_en_data, rd_addr, result);
        
     always @(posedge clk)
     begin 
@@ -151,15 +172,16 @@ module firing_state_FSM2
         end
     end
        
-    always @(state_module, start_in, acc_out, done_out_child_mode1, 
-            done_out_child_mode2)
+    always @(state_module, start_in, result, read_from_command_done, 
+            read_from_length_done, read_from_data_done, done_compute)
     begin 
         case (state_module)
         STATE_START:
         begin
             wr_out_fifo1 <= 0;
-            start_in_child_mode1 <= 0;
-            start_in_child_mode2 <= 0;
+            begin_read_command <= 0;
+            begin_read_length <= 0;
+            begin_read_data <= 0;
             done_out <= 0;
             wr_en <= 0;
             if (start_in)
@@ -183,14 +205,16 @@ module firing_state_FSM2
         STATE_MODE_ONE_START:
         /* This is a hierarchical state --- the core computaitonal mode */
         begin 
-            start_in_child_mode1 <= 1;
+            begin_read_command <= 1;
+            begin_read_length <= 1;
             next_state_module <= STATE_MODE_ONE_WAIT;
         end
 
         STATE_MODE_ONE_WAIT:
         begin
             /* Continue after nested FSM completes */
-            start_in_child_mode1 <= 0;
+            begin_read_command <= 0;
+            begin_read_length <= 0;
             if (read_from_command_done && read_from_length_done)
             begin
                 next_state_module <= STATE_END;
@@ -210,21 +234,36 @@ module firing_state_FSM2
         ***********************************************************************/
         STATE_MODE_TWO_START:
         begin
-            start_in_child_mode2 <= 1;
+            begin_read_data <= 1;
             /* Configure and execute nested FSM */
             next_state_module <= STATE_MODE_TWO_WAIT;
         end
         STATE_MODE_TWO_WAIT:
         begin
             /* Continue after nested FSM completes */
-            start_in_child_mode2 <= 0;
-            if (done_out_child_mode2)
+            begin_read_data <= 0;
+            if (read_from_data_done)
+            begin
+                begin_compute <= 1;
+                next_state_module <= STATE_MODE_TWO_WAIT_COMPUTE;
+            end
+            else 
+            begin
+                next_state_module <= STATE_MODE_TWO_WAIT;
+            end
+        end
+
+
+        STATE_MODE_TWO_WAIT_COMPUTE:
+        begin
+            begin_compute <= 0;
+            if(done_compute)
             begin
                 next_state_module <= STATE_END;
             end
             else 
             begin
-                next_state_module <= STATE_MODE_TWO_WAIT;
+                next_state_module <= STATE_MODE_TWO_WAIT_COMPUTE;
             end
         end
 
@@ -237,7 +276,7 @@ module firing_state_FSM2
         /* This is a leaf-level state (no nested FSM) */
         begin 
             wr_out_fifo1 <= 1;          
-            result_out <= acc_out;
+            result_out <= result;
             wr_en <= 0;
             next_state_module <= STATE_END;
         end

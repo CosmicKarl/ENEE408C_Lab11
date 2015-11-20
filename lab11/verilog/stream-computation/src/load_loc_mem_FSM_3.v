@@ -40,22 +40,25 @@ This FSM implements a nested FSM for mode 1 of the inner product actor.
 `timescale 1ns/1ps
 
 module load_loc_mem_FSM_3
-        #(parameter size = 3, width = 10)(  
+        #(parameter width = 10)(  
         input clk, rst,
         input start_in,
-        input sizet,
+        input [width - 1 : 0] sizet,
         input [width - 1 : 0] in_fifo,
+        output [width-1 : 0] state_out,
         output reg rd_in_fifo1,
         output reg done_out,
         output reg wr_en,
-        output reg [log2(size) - 1 : 0] wr_addr,
+        output reg [width - 1 : 0] wr_addr,
         output reg [width - 1 : 0] fifo_out);
 
     localparam START = 2'b00, STATE0 = 2'b01, STATE1 = 2'b10, END = 2'b11;
   
     reg [1 : 0] state, next_state;
     reg [width - 1 : 0] temp_reg_one, next_temp_reg_one;
-    reg [log2(size) - 1 : 0] counter, next_counter;
+    reg [width - 1 : 0] counter, next_counter;
+
+    assign state_out = wr_addr;
   
     always @(posedge clk)
     begin
@@ -102,7 +105,7 @@ module load_loc_mem_FSM_3
             rd_in_fifo1 <= 0;
             wr_addr <= counter;
             fifo_out <= temp_reg_one;
-            if (counter == (size - 1))
+            if (counter >= (sizet - 1))
                 next_state <= END;
             else
                 next_state <= STATE0;

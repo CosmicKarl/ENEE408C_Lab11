@@ -69,26 +69,31 @@ ENHANCEMENTS, OR MODIFICATIONS.
 `timescale 1ns/1ps
 
 module stream_comp_invoke_top_module_FSM_1
-        #(parameter size = 3, width = 10)(    
+        #(parameter width = 10)(    
         input clk,rst,
         input [width - 1 : 0] data_in_fifo,
         input [width - 1 : 0] length_in_fifo, 
         input [width - 1 : 0] command_in_fifo, 
         input invoke,
         input [1 : 0] next_mode_in,
+        output [width-1 : 0] command_loc_mem_state,
+        output [width-1 : 0] data_loc_mem_state,
+        output [width-1 : 0] len_loc_mem_state,
         output rd_data_in_fifo,
         output rd_length_in_fifo,
         output rd_command_in_fifo,
         output [1 : 0] next_mode_out,
+        output [width - 1 : 0] length,
         output FC,
         output wr_out_fifo1,
-        output [width - 1 : 0] data_out);
+        output [width - 1 : 0] result_out);
 
     localparam STATE_IDLE = 2'b00, STATE_FIRING_START = 2'b01, 
             STATE_FIRING_WAIT = 2'b10;
     localparam MODE_ONE = 2'b00, MODE_TWO = 2'b01, MODE_THREE = 2'b10;
       
     reg [1 : 0] state_module, next_state_module;
+    //reg [width - 1 : 0] length;
     reg start_in_child;
     
     wire done_out_child;
@@ -96,10 +101,14 @@ module stream_comp_invoke_top_module_FSM_1
     assign FC = done_out_child;
 
     /* Instantiation of nested FSM for actor firing state. */         
-    firing_state_FSM2 #(.size(size), .width(width)) 
-            FSM2(clk, rst, data_in_fifo1, 
-            data_in_fifo2, start_in_child, next_mode_in, rd_in_fifo1, 
-            rd_in_fifo2, next_mode_out, done_out_child, wr_out_fifo1, data_out);
+    firing_state_FSM2 #(.width(width)) 
+            FSM2(clk, rst, 
+            data_in_fifo, length_in_fifo, command_in_fifo, 
+            start_in_child, next_mode_in, 
+            command_loc_mem_state, data_loc_mem_state, len_loc_mem_state,
+            rd_data_in_fifo, rd_length_in_fifo, rd_command_in_fifo,
+            length,
+            next_mode_out, done_out_child, wr_out_fifo1, result_out);
          
     always @(posedge clk) 
     begin 

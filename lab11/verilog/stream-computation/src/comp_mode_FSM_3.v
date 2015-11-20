@@ -40,21 +40,24 @@ This FSM implements the core computational mode for the inner product actor.
 *******************************************************************************/
 `timescale 1ns/1ps
 
-module accumulator_mode_FSM_3
-        #(parameter size = 3, width = 10)(  
+module comp_mode_FSM_3
+        #(parameter width = 10)(  
         input clk, rst,
         input start_in,
         input [width - 1 : 0] command_in, length_in, data_in,
+        output [width-1:0] state_out,
         output reg done_out,
         output reg rd_en,
-        output [log2(size) - 1 : 0] rd_addr,
+        output [width - 1 : 0] rd_addr,
         output reg [width - 1 : 0] acc);
 
     localparam START = 2'b00, STATE0 = 2'b01, STATE1 = 2'b10, END = 2'b11;
   
     reg [1 : 0] state, next_state;
     reg [width - 1 : 0] next_acc;
-    reg [log2(size) - 1 : 0] counter, next_counter;
+    reg [width - 1 : 0] counter, next_counter;
+
+    assign state_out = counter;
   
     always @(posedge clk)
     begin
@@ -62,7 +65,7 @@ module accumulator_mode_FSM_3
         begin 
             state <= START;
             acc <= 0;
-	          counter <= 0;
+	        counter <= 0;
         end
         else
         begin 
@@ -75,32 +78,33 @@ module accumulator_mode_FSM_3
     assign rd_addr = counter;
 
     always @(state, start_in, command_in, length_in, data_in, counter)
-    begin 
-        case (state)
-	      START:
-	      begin
+    begin
+        case(state)
+        START:
+        begin
             done_out <= 0;
-       	    next_acc <= acc;
-       	    next_counter <= 0;
-       	    rd_en <= 0;
+            next_acc <= acc;
+            next_counter <= 0;
+            rd_en <= 0;
             if (start_in)
                 next_state <= STATE0;
             else
-                next_state <= START;		    
+                next_state <= START;         
         end
         STATE0:
         begin 
             next_counter <= counter + 1;
             rd_en <= 1;
-            //next_acc <= ram_out1 * ram_out2;
-            next_state <= STATE1;
+            next_acc <= data_in;
+            next_state <= END;
         end
         STATE1:
         begin 
             next_counter <= counter + 1;
             rd_en <= 1;
-            //next_acc <= acc + ram_out1 * ram_out2;
-            if (counter == (size - 1))
+            next_acc <= acc + data_in;
+            //if (counter == (length_in - 1))
+            if (counter == (5 - 1))
                 next_state <= END;
             else
                 next_state <= STATE1;
@@ -110,11 +114,51 @@ module accumulator_mode_FSM_3
             done_out <= 1;
             next_counter <= 0;
             rd_en <= 0;
-            next_acc <= acc;	    
+            next_acc <= acc;     
             next_state <= START;
         end
         endcase
     end
+    // begin 
+    //     case (state)
+    //    START:
+    //    begin
+    //         done_out <= 0;
+    //    	    next_acc <= acc;
+    //    	    next_counter <= 0;
+    //    	    rd_en <= 0;
+    //         if (start_in)
+    //             next_state <= STATE0;
+    //         else
+    //             next_state <= START;		    
+    //     end
+    //     STATE0:
+    //     begin 
+    //         next_counter <= counter + 1;
+    //         rd_en <= 1;
+    //         //next_acc <= ram_out1 * ram_out2;
+    //         next_state <= STATE1;
+    //     end
+    //     STATE1:
+    //     begin 
+    //         next_counter <= counter + 1;
+    //         rd_en <= 1;
+    //         //next_acc <= acc + ram_out1 * ram_out2;
+    //         if (counter == (size - 1))
+    //             next_state <= END;
+    //         else
+    //             next_state <= STATE1;
+    //     end
+    //     END:
+    //     begin 
+    //         done_out <= 1;
+    //         next_counter <= 0;
+    //         rd_en <= 0;
+    //         next_acc <= acc;	    
+    //         next_state <= START;
+    //     end
+    //     endcase
+    // end
 
     function integer log2;
     input [31:0] value;

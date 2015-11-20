@@ -61,9 +61,11 @@ module stream_comp_enable
  
     always @(mode, pop_in_command_fifo, pop_in_length_fifo, pop_in_data_fifo, cap_out_fifo1)
     begin 
+        $display("in enable: pop in command: %d", pop_in_command_fifo); 
         case (mode)
         MODE_ONE:
         begin
+
             if (pop_in_command_fifo >= 1 && pop_in_length_fifo >= 1)
                 enable <= 1;
             else
@@ -76,20 +78,29 @@ module stream_comp_enable
             else 
                 enable <= 0;
                         
-        end    
+        end
         MODE_THREE:
         begin
-            enable <= 1;
-        end
-        MODE_FOUR:
-        begin 
             if (cap_out_fifo1 >= 1)
-                enable <= 1;
+            enable <= 1;
         end
         default:
         begin 
             enable <= 0;
-        end
+        end    
+        // MODE_THREE:
+        // begin
+        //     enable <= 1;
+        // end
+        // MODE_FOUR:
+        // begin 
+        //     if (cap_out_fifo1 >= 1)
+        //         enable <= 1;
+        // end
+        // default:
+        // begin 
+        //     enable <= 0;
+        // end
         endcase
     end
     

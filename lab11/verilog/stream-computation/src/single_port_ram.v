@@ -58,18 +58,18 @@ operations
 
 `timescale 1ns/1ps
 module single_port_ram
-        #(parameter size = 3, width = 10)(  
+        #(parameter width = 10)(  
         input [width - 1 : 0] data,
-        input [log2(size) - 1 : 0] addr,
-        input [log2(size) - 1 : 0] rd_addr,
+        input [width - 1 : 0] addr,
+        input [width - 1 : 0] rd_addr,
         input wr_en, re_en, clk,
         output [width - 1 : 0] q);
 
     /* Declare the RAM variable */
-    reg [width - 1 : 0] ram[size - 1 : 0];
+    reg [width - 1 : 0] ram[width - 1 : 0];
 	
     /* Variable to hold the registered read address */
-    reg [log2(size) - 1 : 0] addr_reg;
+    reg [width - 1 : 0] addr_reg;
 	
     integer i;
 	
