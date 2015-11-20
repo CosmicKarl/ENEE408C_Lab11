@@ -27,27 +27,16 @@ ENHANCEMENTS, OR MODIFICATIONS.
 ******************************************************************************/
 
 /******************************************************************************
-* Name        : tb_inner_product_FSM
-* Description : testbench for inner_product actor
-* Sub modules : Two input fifos, one output fifos, inner_product invoke/enable
+* Name        : tb_actor
+* Description : testbench for compute actor
 *               modules
 ******************************************************************************/
 
-/*******************************************************************************
-*  Parameters     : A. size -- the numer of tokens (integers) in each
-*                   input vector. So, if size = N, then this actor
-*                   performs an N x N inner product.
-*                   B. width -- the bit width for the integer data type
-*                   used in the inner product operations
-*******************************************************************************/
-
 `timescale 1ns/1ps
 module tb_stream_compute();
-
     parameter buffer_size = 10, width = 10, buffer_size_out = 1;
     parameter MODE_ONE = 2'b00, MODE_TWO = 2'b01, MODE_THREE = 2'b10;
 
-    /* Input vector size for the inner product. */
     parameter size = 5;
   
     reg clk, rst; 
@@ -57,7 +46,6 @@ module tb_stream_compute();
     reg [1 : 0]  next_mode_in;
     reg rd_en_result_fifo;
     
-    /* Input memories for inner product. */
     reg [width - 1 : 0] data_mem [0 : width - 1];
     reg [width - 1 : 0] length_mem [0 : width - 1];
     reg [width - 1 : 0] command_mem [0 : width - 1];
@@ -142,9 +130,6 @@ module tb_stream_compute();
         /* Set up a file to store the test output */
         descr = $fopen("out.txt");
         
-        /* Read text files and load the data into memory for input of inner 
-        product actor
-        */
         $readmemh("data_in.txt", data_mem);
         $readmemh("length_in.txt", length_mem);
         $readmemh("command_in.txt", command_mem);

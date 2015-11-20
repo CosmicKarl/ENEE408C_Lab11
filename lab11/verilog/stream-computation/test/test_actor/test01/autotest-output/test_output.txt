@@ -1,5 +1,5 @@
 Tests started on:
-Fri Nov 20 14:23:21 EST 2015
+Fri Nov 20 15:11:32 EST 2015
 -----------------------------------------------------
 Test result for:
 /homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test01
@@ -7,4 +7,4 @@ Test result for:
 Error comparison result for: 
 /homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test01
 Tests completed on:
-Fri Nov 20 14:23:25 EST 2015
+Fri Nov 20 15:11:36 EST 2015
