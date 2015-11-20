@@ -60,8 +60,8 @@ module tb_stream_compute();
     /* Input memories for inner product. */
     reg [width - 1 : 0] data_mem [0 : buffer_size - 1];
 
-	sum_comp #(.size(buffer_size), .width(width))
-		_sum_comp (clk, rst, start_in, length_in, data_in, 
+	max_comp #(.size(buffer_size), .width(width))
+		_max_comp (clk, rst, start_in, length_in, data_in, 
 		done_out, rd_en, rd_addr, out); 
   
 
