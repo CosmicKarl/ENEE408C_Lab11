@@ -1,0 +1,28 @@
+Tests started on:
+Fri Nov 20 19:14:23 EST 2015
+-----------------------------------------------------
+Test result for:
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_max
+Files ../correct-output.txt and output.txt differ
+-----------------------------------------------------
+Error comparison result for: 
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_max
+Files ../expected-errors.txt and error_output.txt differ
+-----------------------------------------------------
+Test result for:
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_min
+Files ../correct-output.txt and output.txt differ
+-----------------------------------------------------
+Error comparison result for: 
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_min
+Files ../expected-errors.txt and error_output.txt differ
+-----------------------------------------------------
+Test result for:
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_sum
+Files ../correct-output.txt and output.txt differ
+-----------------------------------------------------
+Error comparison result for: 
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_sum
+Files ../expected-errors.txt and error_output.txt differ
+Tests completed on:
+Fri Nov 20 19:14:34 EST 2015

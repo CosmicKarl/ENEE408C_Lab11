@@ -1,0 +1,22 @@
+Tests started on:
+Fri Nov 20 19:19:29 EST 2015
+-----------------------------------------------------
+Test result for:
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_max
+-----------------------------------------------------
+Error comparison result for: 
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_max
+-----------------------------------------------------
+Test result for:
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_min
+-----------------------------------------------------
+Error comparison result for: 
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_min
+-----------------------------------------------------
+Test result for:
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_sum
+-----------------------------------------------------
+Error comparison result for: 
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_sum
+Tests completed on:
+Fri Nov 20 19:19:38 EST 2015

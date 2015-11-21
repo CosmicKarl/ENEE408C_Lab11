@@ -1,0 +1,9 @@
+Start Reading in data
+data:    0, rd_addr:    0
+input[   1] =    1 | out =    0
+input[   2] =    2 | out =    1
+input[   3] =    3 | out =    3
+input[   4] =    4 | out =    6
+input[   5] =    5 | out =   10
+input[   6] =    x | out =   15
+out:   15

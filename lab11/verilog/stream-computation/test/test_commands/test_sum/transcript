@@ -1,0 +1,8 @@
+# vsim -L ../../../bin -do ./simulate-do -c -lic_plus -novopt tb_sum_comp 
+# Refreshing /afs/glue.umd.edu/home/glue/k/c/kcarp13/home/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_sum/work.tb_sum_comp
+# Loading work.tb_sum_comp
+# Loading ../../../bin.sum_comp
+# do ./simulate-do 
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 6 of file "data_mem.txt". (Current address [5], address range [0:4])    : tb_sum_comp.v(85)
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sum_comp
+: 0  Instance: /tb_sum_comp

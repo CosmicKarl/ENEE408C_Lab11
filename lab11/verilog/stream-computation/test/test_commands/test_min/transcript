@@ -1,0 +1,8 @@
+# vsim -L ../../../bin -do ./simulate-do -c -lic_plus -novopt tb_min_comp 
+# Refreshing /afs/glue.umd.edu/home/glue/k/c/kcarp13/home/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_min/work.tb_min_comp
+# Loading work.tb_min_comp
+# Loading ../../../bin.min_comp
+# do ./simulate-do 
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 6 of file "data_mem.txt". (Current address [5], address range [0:4])    : tb_min_comp.v(86)
+#    Time: 0 ps  Iteration: 0  Instance: /tb_min_comp
+: 0  Instance: /tb_min_comp

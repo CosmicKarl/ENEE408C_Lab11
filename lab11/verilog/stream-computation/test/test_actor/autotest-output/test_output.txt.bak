@@ -1,34 +1,39 @@
 Tests started on:
-Fri Nov 20 15:07:25 EST 2015
+Fri Nov 20 19:19:48 EST 2015
 -----------------------------------------------------
 Test result for:
-/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test01
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test01
+Files ../correct-output.txt and output.txt differ
 -----------------------------------------------------
 Error comparison result for: 
-/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test01
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test01
 -----------------------------------------------------
 Test result for:
-/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test02
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test02
+Files ../correct-output.txt and output.txt differ
 -----------------------------------------------------
 Error comparison result for: 
-/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test02
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test02
 -----------------------------------------------------
 Test result for:
-/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test03
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test03
+Files ../correct-output.txt and output.txt differ
 -----------------------------------------------------
 Error comparison result for: 
-/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test03
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test03
 -----------------------------------------------------
 Test result for:
-/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test04
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test04
+Files ../correct-output.txt and output.txt differ
 -----------------------------------------------------
 Error comparison result for: 
-/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test04
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test04
 -----------------------------------------------------
 Test result for:
-/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test05
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test05
+Files ../correct-output.txt and output.txt differ
 -----------------------------------------------------
 Error comparison result for: 
-/homes/dmoreno1/enee408c_user/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test05
+/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_actor/test05
 Tests completed on:
-Fri Nov 20 15:07:49 EST 2015
+Fri Nov 20 19:20:05 EST 2015

@@ -109,41 +109,39 @@ nload_loc_mem_@f@s@m_3
 !s90 -work|../bin|load_loc_mem_FSM_3.v|
 !i111 0
 vmax_comp
-Z10 !s110 1448060804
-IQI_b<I_cSM[N8oYdQYLkU0
 R1
+r1
+31
+IQI_b<I_cSM[N8oYdQYLkU0
 R2
 w1448057728
 8max_comp.v
 Fmax_comp.v
 L0 15
 R5
-r1
-31
 R8
+!s85 0
 !i10b 1
 !s100 JoJT_3ShhY?AW2=oP?0A;1
-!s85 0
 !s108 1448060804.649396
 !s107 max_comp.v|
 !s90 -work|../bin|max_comp.v|
 !i111 0
 vmin_comp
-In:7_J:olD]3Q5[^Q;nhD>1
 R1
+r1
+!s85 0
+31
+In:7_J:olD]3Q5[^Q;nhD>1
 R2
 w1448057722
 8min_comp.v
 Fmin_comp.v
 L0 16
 R5
-r1
-31
 R8
-R10
 !i10b 1
 !s100 PPKOYec]b8=bgZAA5L_LE2
-!s85 0
 !s108 1448060804.219178
 !s107 min_comp.v|
 !s90 -work|../bin|min_comp.v|
@@ -170,7 +168,6 @@ R8
 vstream_comp_enable
 R1
 r1
-!s85 0
 31
 IE_3ckdo3a5^Pg924PCDDE0
 R2
@@ -180,6 +177,7 @@ Fstream_comp_enable.v
 L0 46
 R5
 R8
+!s85 0
 !i10b 1
 !s100 ?7G=mFUTejMW3<K;Oz6oK2
 !s108 1448060807.770710
@@ -207,21 +205,20 @@ nstream_comp_invoke_top_module_@f@s@m_1
 !s90 -work|../bin|stream_comp_invoke_top_module_FSM_1.v|
 !i111 0
 vsum_comp
-IR;WEhSnI3^?0Q]aY;<_Zh1
 R1
+r1
+31
+IR;WEhSnI3^?0Q]aY;<_Zh1
 R2
 w1448057282
 8sum_comp.v
 Fsum_comp.v
 L0 14
 R5
-r1
-31
 R8
-!s110 1448060805
+!s85 0
 !i10b 1
 !s100 n`8T>API0A<aHLYRfaJ:81
-!s85 0
 !s108 1448060805.128701
 !s107 sum_comp.v|
 !s90 -work|../bin|sum_comp.v|

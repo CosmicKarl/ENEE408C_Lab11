@@ -3,28 +3,27 @@ K4
 z2
 13
 cModel Technology
-Z0 d/homes/jknapo/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_min
+d/homes/jknapo/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_min
 !s112 0.1
 !i10d 8192
 !i10e 25
 !i10f 100
 vtb_min_comp
-!s110 1448050301
-!i10b 1
-!s100 <6d?bm`kE<ncVNGY[d[zj2
-I:e=][`lY^5l4C9F256FVD2
 V`JN@9S9cnhjKRR_L]QIcM3
-Z1 d/homes/jknapo/enee408c_user/labs/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_min
-w1448050295
-8tb_min_comp.v
-Ftb_min_comp.v
-L0 36
-Z2 OL;L;10.2c;57
 r1
 !s85 0
 31
-!s108 1448050300.979148
-!s107 tb_min_comp.v|
+!s100 <6d?bm`kE<ncVNGY[d[zj2
+I:e=][`lY^5l4C9F256FVD2
+d/homes/kcarp13/enee408c_user/labs/lab11-git/ENEE408C_Lab11/lab11/verilog/stream-computation/test/test_commands/test_min
+w1448057283
+8tb_min_comp.v
+Ftb_min_comp.v
+L0 36
+OL;L;10.2c;57
 !s90 tb_min_comp.v|
-!i111 0
 o-L mtiAvm -L mtiOvm -L mtiUPF
+!i10b 1
+!s108 1448065776.285039
+!s107 tb_min_comp.v|
+!i111 0
